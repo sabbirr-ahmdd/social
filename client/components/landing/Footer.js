@@ -2,18 +2,20 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/5 py-10">
-      <div className="max-w-6xl mx-auto px-5 flex flex-col md:flex-row items-center justify-between gap-4">
-        <Link href="/" className="text-lg font-semibold text-[#F0EDE8]">
-          feel<span className="text-[#7C6FFF]">ide</span>
+    <footer className="bg-white border border-[#e8ede9] rounded-3xl px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <Link href="/" className="text-[15px] font-semibold tracking-tight text-[#0a0f0c]">
+        ropp<span className="text-[#1f6b45]">al</span>
+      </Link>
+      <p className="text-[12px] font-medium text-[#3d4f45]">
+        © 2026 Roppal. All rights reserved.
+      </p>
+      <div className="flex gap-5">
+        <Link href="/privacy" className="text-[12px] font-medium text-[#3d4f45] hover:text-[#0a0f0c] transition-colors">
+          Privacy
         </Link>
-        <p className="text-xs text-[#F0EDE8]/25">
-          © {new Date().getFullYear()} Feelide. All rights reserved.
-        </p>
-        <div className="flex items-center gap-5">
-          <Link href="/privacy" className="text-xs text-[#F0EDE8]/30 hover:text-[#F0EDE8]/60 transition-colors">Privacy</Link>
-          <Link href="/terms" className="text-xs text-[#F0EDE8]/30 hover:text-[#F0EDE8]/60 transition-colors">Terms</Link>
-        </div>
+        <Link href="/terms" className="text-[12px] font-medium text-[#3d4f45] hover:text-[#0a0f0c] transition-colors">
+          Terms
+        </Link>
       </div>
     </footer>
   );

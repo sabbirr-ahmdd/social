@@ -1,39 +1,67 @@
-"use client";
-
 import Link from "next/link";
 
-function EventCard() {
+function PhoneFeed() {
   return (
-    <div className="animate-float w-[300px] bg-[#1A3D2B] border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
-      <div className="h-36 bg-gradient-to-br from-[#2A7A4B]/40 to-[#1A3D2B] flex items-center justify-center relative">
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1A3D2B] to-transparent" />
-        <svg className="w-12 h-12 text-[#34D399]/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" />
-        </svg>
-      </div>
-      <div className="p-4">
-        <div className="flex items-center gap-2 mb-2">
-          <div className="w-5 h-5 rounded-md bg-[#2A7A4B] flex items-center justify-center text-[9px] font-bold text-white">DH</div>
-          <span className="text-[10px] text-[#34D399]">Dhaka Hikers</span>
-        </div>
-        <h3 className="text-sm font-semibold text-[#E8F0E8] mb-1">Sundarbans Trek — 2 Days</h3>
-        <div className="flex items-center gap-3 text-[10px] text-[#E8F0E8]/40 mb-3">
-          <span>📅 Aug 12</span>
-          <span>📍 Khulna</span>
-        </div>
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-1.5">
-            <div className="flex -space-x-1.5">
-              {["#2A7A4B", "#34D399", "#A3C4A3"].map((c, i) => (
-                <div key={i} className="w-5 h-5 rounded-full border border-[#1A3D2B]" style={{ background: c }} />
-              ))}
-            </div>
-            <span className="text-[10px] text-[#34D399]">+34 going</span>
+    <div className="w-[140px] shrink-0 bg-[#f0f4f1] border border-[#e8ede9] rounded-2xl p-2.5">
+      <div className="w-8 h-1 bg-[#d4ddd6] rounded-full mx-auto mb-3" />
+
+      <div className="bg-white border border-[#e8ede9] rounded-xl overflow-hidden mb-2">
+        <div className="h-11 bg-[#e8f5ee] flex items-center justify-center text-lg">🏔️</div>
+        <div className="p-2">
+          <div className="flex items-center gap-1 mb-1">
+            <div className="w-3 h-3 rounded-[3px] bg-[#1f6b45] flex items-center justify-center text-[6px] font-bold text-white">DH</div>
+            <span className="text-[8px] text-[#1f6b45] font-semibold">Dhaka Hikers</span>
           </div>
-          <button className="text-[10px] bg-[#2A7A4B]/20 text-[#34D399] px-3 py-1 rounded-full">
-            Join
-          </button>
+          <p className="text-[9px] font-semibold text-[#0a0f0c] mb-0.5 leading-tight">Sundarbans Trek</p>
+          <p className="text-[8px] text-[#3d4f45] mb-1.5">Aug 12 · Khulna</p>
+          <div className="flex justify-between items-center">
+            <span className="text-[8px] text-[#1f6b45] font-semibold">+34 going</span>
+            <span className="text-[8px] font-semibold bg-[#1f6b45] text-white px-1.5 py-0.5 rounded-full">Join</span>
+          </div>
         </div>
+      </div>
+
+      <div className="bg-white border border-[#e8ede9] rounded-xl overflow-hidden">
+        <div className="h-11 bg-[#eef4ff] flex items-center justify-center text-lg">🎂</div>
+        <div className="p-2">
+          <p className="text-[9px] font-semibold text-[#0a0f0c] mb-0.5 leading-tight">Nadia's Birthday</p>
+          <p className="text-[8px] text-[#3d4f45] mb-1.5">Jul 20 · Private</p>
+          <div className="flex justify-between items-center">
+            <span className="text-[8px] text-[#2d5fb8] font-semibold">6 invited</span>
+            <span className="text-[8px] font-semibold bg-[#4a7fd4] text-white px-1.5 py-0.5 rounded-full">View</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function PhoneProfile() {
+  return (
+    <div className="w-[140px] shrink-0 bg-white border border-[#e8ede9] rounded-2xl p-2.5">
+      <div className="w-8 h-1 bg-[#d4ddd6] rounded-full mx-auto mb-3" />
+
+      <div className="flex items-center gap-1.5 mb-2.5">
+        <div className="w-7 h-7 rounded-full bg-[#e8f5ee] border-2 border-[#a8d4bc] flex items-center justify-center text-[10px] font-bold text-[#1f6b45] shrink-0">SA</div>
+        <div className="min-w-0">
+          <p className="text-[9px] font-semibold text-[#0a0f0c] truncate">Sabbir Ahmed</p>
+          <p className="text-[8px] text-[#3d4f45]">@sabbir · 🌍</p>
+        </div>
+      </div>
+
+      <div className="flex border-y border-[#e8ede9] mb-2.5">
+        {[["12","Events"],["248","Foll."],["91","Foll."]].map(([n,l],i) => (
+          <div key={i} className={`flex-1 py-1.5 text-center ${i < 2 ? "border-r border-[#e8ede9]" : ""}`}>
+            <p className="text-[11px] font-bold text-[#0a0f0c]">{n}</p>
+            <p className="text-[7px] font-medium text-[#3d4f45]">{l}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="grid grid-cols-2 gap-1">
+        {[["🏔️","#d4ede0"],["🎵","#d4e4ff"],["🏕️","#fde8c0"],["🎂","#fdd4d4"]].map(([e,bg],i) => (
+          <div key={i} className="h-9 rounded-lg flex items-center justify-center text-base" style={{background:bg}}>{e}</div>
+        ))}
       </div>
     </div>
   );
@@ -41,55 +69,56 @@ function EventCard() {
 
 export default function Hero() {
   return (
-    <section className="min-h-screen flex items-center pt-16 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-5 w-full">
-        <div className="grid md:grid-cols-2 gap-12 items-center py-20">
-          <div>
-            <div className="inline-flex items-center gap-2 bg-[#2A7A4B]/10 border border-[#2A7A4B]/20 rounded-full px-3 py-1 mb-6">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#34D399] animate-pulse" />
-              <span className="text-xs text-[#34D399]">Now available in Bangladesh</span>
-            </div>
+    <section className="bg-white border border-[#e8ede9] rounded-3xl p-6 md:p-14 relative overflow-hidden">
+      <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-[#c2dfd0] opacity-40 blur-3xl pointer-events-none" />
 
-            <h1 className="text-5xl md:text-6xl font-semibold text-[#E8F0E8] leading-[1.1] tracking-tight mb-6">
-              Events that{" "}
-              <span className="text-[#34D399]">bring</span>
-              <br />people together
-            </h1>
+      <div className="relative flex flex-col md:grid md:grid-cols-2 md:gap-10 md:items-center">
 
-            <p className="text-[#A3C4A3] text-lg leading-relaxed mb-8 max-w-md">
-              Create, discover and join events with your circle or the world.
-              RSVP, split costs, chat — all in one place.
-            </p>
-
-            <div className="flex items-center gap-3">
-              <Link href="/register" className="bg-[#2A7A4B] hover:bg-[#236040] text-white px-6 py-3 rounded-full text-sm font-medium transition-colors">
-                Get started free
-              </Link>
-              <Link href="#how-it-works" className="text-sm text-[#A3C4A3] hover:text-[#E8F0E8] transition-colors flex items-center gap-1.5">
-                See how it works
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
-            </div>
-
-            <div className="flex items-center gap-2 mt-8">
-              <div className="flex -space-x-2">
-                {["#2A7A4B", "#34D399", "#A3C4A3", "#1A3D2B"].map((c, i) => (
-                  <div key={i} className="w-7 h-7 rounded-full border-2 border-[#0A0F0A]" style={{ background: c }} />
-                ))}
-              </div>
-              <p className="text-xs text-[#A3C4A3]/70">
-                Join <span className="text-[#E8F0E8]">2,000+</span> people already using Feelide
-              </p>
-            </div>
+        {/* Text */}
+        <div className="mb-8 md:mb-0">
+          <div className="inline-flex items-center gap-2 bg-[#e8f5ee] text-[#1a5c3a] text-[12px] font-semibold px-4 py-1.5 rounded-full border border-[#a8d4bc] mb-5">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#1f6b45] pulse-dot inline-block" />
+            Plan anything, anywhere in the world
           </div>
 
-          <div className="hidden md:flex justify-center items-center relative">
-            <div className="absolute w-64 h-64 bg-[#2A7A4B]/15 rounded-full blur-3xl" />
-            <EventCard />
+          <h1 className="text-[36px] sm:text-[44px] md:text-[52px] font-light leading-[1.08] tracking-[-2px] text-[#0a0f0c] mb-4">
+            Where events<br />come{" "}
+            <span className="font-semibold text-[#1f6b45]">alive.</span>
+          </h1>
+
+          <p className="text-[14px] sm:text-[15px] text-[#3d4f45] leading-[1.7] mb-7 max-w-sm">
+            Create, discover and join events with your circle or the world. RSVP, split costs, chat — one place for all of it.
+          </p>
+
+          <div className="flex flex-wrap gap-3 mb-8">
+            <Link
+              href="/register"
+              className="text-[13px] font-semibold bg-[#0f1512] text-white px-6 py-3 rounded-full hover:bg-[#1f6b45] transition-colors"
+            >
+              Get started
+            </Link>
+            <Link
+              href="#how-it-works"
+              className="text-[13px] font-semibold bg-[#e8f5ee] text-[#1a5c3a] px-6 py-3 rounded-full border border-[#a8d4bc] hover:bg-[#d4ede0] transition-colors"
+            >
+              See how it works →
+            </Link>
+          </div>
+
+        </div>
+
+        {/* Phones — fixed overflow on mobile */}
+        <div className="w-full overflow-hidden">
+          <div className="flex gap-3 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-1">
+            <div className="snap-start shrink-0">
+              <PhoneFeed />
+            </div>
+            <div className="snap-start shrink-0 mt-6">
+              <PhoneProfile />
+            </div>
           </div>
         </div>
+
       </div>
     </section>
   );
