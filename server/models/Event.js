@@ -72,4 +72,4 @@ EventSchema.index({ visibility: 1, status: 1, date: 1 }); // public feed
 EventSchema.index({ tags: 1 });
 EventSchema.index({ date: 1 });
 
-module.exports = mongoose.model("Event", EventSchema);
+export default mongoose.model("Event", EventSchema);

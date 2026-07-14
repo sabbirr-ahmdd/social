@@ -31,4 +31,4 @@ RsvpSchema.index({ eventId: 1, userId: 1 }, { unique: true });
 RsvpSchema.index({ eventId: 1, status: 1 }); // "how many going to event X?"
 RsvpSchema.index({ userId: 1 }); // "which events has user Y RSVPed to?"
 
-module.exports = mongoose.model("Rsvp", RsvpSchema);
+export default mongoose.model("Rsvp", RsvpSchema);

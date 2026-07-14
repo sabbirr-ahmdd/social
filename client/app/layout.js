@@ -1,18 +1,22 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import { AuthProvider } from "@/context/AuthContext";
+import ConditionalWrapper from "@/utils/ConditionalNavbar";
 
-const inter = Inter({ subsets: ["latin"], weight: ["300", "400", "500", "600"] });
-
-export const metadata = {
-  title: "Roppal — Where events come alive",
-  description: "Create, discover and join events with your circle or the world.",
-};
+const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${inter.className} bg-[#f0f4f1] text-[#0f1512] antialiased`}>
-        {children}
+    <html lang="en">
+      <body className={inter.className}>
+        <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID}>
+          <AuthProvider>
+            <ConditionalWrapper>
+              {children}
+            </ConditionalWrapper>
+          </AuthProvider>
+        </GoogleOAuthProvider>
       </body>
     </html>
   );

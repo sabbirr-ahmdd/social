@@ -53,4 +53,4 @@ UserSchema.index({ email: 1 }, { sparse: true });
 UserSchema.index({ phone: 1 }, { sparse: true });
 UserSchema.index({ username: 1 }, { sparse: true });
 
-module.exports = mongoose.model("User", UserSchema);
+export default mongoose.model("User", UserSchema);

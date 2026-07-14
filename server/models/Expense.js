@@ -46,4 +46,4 @@ ExpenseSchema.index({ eventId: 1 }); // all expenses for an event
 ExpenseSchema.index({ addedBy: 1 }); // expenses added by a user
 ExpenseSchema.index({ eventId: 1, addedBy: 1 }); // combined filter
 
-module.exports = mongoose.model("Expense", ExpenseSchema);
+export default mongoose.model("Expense", ExpenseSchema);

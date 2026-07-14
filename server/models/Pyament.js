@@ -69,4 +69,4 @@ PaymentSchema.index({ fromUserId: 1, status: 1 }); // what user X owes
 PaymentSchema.index({ toUserId: 1, status: 1 }); // what organizer Y should receive
 PaymentSchema.index({ transactionId: 1 }, { sparse: true }); // SSLCommerz callback lookup
 
-module.exports = mongoose.model("Payment", PaymentSchema);
+export default mongoose.model("Payment", PaymentSchema);
